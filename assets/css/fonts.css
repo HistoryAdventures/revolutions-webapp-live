@@ -1,0 +1,80 @@
+@font-face {
+    font-family: Favorit_Bold-Italic;
+    src: url('./fonts/Favorit/Favorit_Bold-Italic.otf');
+}
+
+@font-face {
+    font-family: Favorit_Bold;
+    src: url('./fonts/Favorit/Favorit_Bold.otf');
+}
+
+@font-face {
+    font-family: Favorit_Light;
+    src: url('./fonts/Favorit/Favorit_Light.otf');
+}
+
+@font-face {
+    font-family: Favorit_Light-Italic;
+    src: url('./fonts/Favorit/Favorit_Light-Italic.otf');
+}
+
+@font-face {
+    font-family: Favorit_Medium-Italic;
+    src: url('./fonts/Favorit/Favorit_Medium-Italic.otf');
+}
+
+@font-face {
+    font-family: Favorit_Medium;
+    src: url('./fonts/Favorit/Favorit_Medium.otf');
+}
+
+@font-face {
+    font-family: Favorit_Regular-Italic;
+    src: url('./fonts/Favorit/Favorit_Regular-Italic.otf');
+}
+
+@font-face {
+    font-family: Favorit_Regular;
+    src: url('./fonts/Favorit/Favorit_Regular.otf');
+}
+
+@font-face {
+    font-family: Favorit-Bold_Lining;
+    src: url('./fonts/Favorit Lining/Favorit-Bold_Lining.otf');
+}
+
+@font-face {
+    font-family: Favorit-Light_Lining;
+    src: url('./fonts/Favorit Lining/Favorit-Light_Lining.otf');
+}
+
+
+@font-face {
+    font-family: Favorit-Medium_Lining;
+    src: url('./fonts/Favorit Lining/Favorit-Medium_Lining.otf');
+}
+
+@font-face {
+    font-family: Favorit-Regular_Lining;
+    src: url('./fonts/Favorit Lining/Favorit-Regular_Lining.otf');
+}
+
+@font-face {
+    font-family: LynoStan;
+    src: url('./fonts/Lyno Family/LynoStan.otf');
+}
+
+@font-face {
+    font-family: LynoUlys;
+    src: url('./fonts/Lyno Family/LynoUlys.otf');
+}
+
+@font-face {
+    font-family: LynoWalt;
+    src: url('./fonts/Lyno Family/LynoWalt.otf');
+}
+
+@font-face {
+    font-family: LynoJean;
+    src: url('./fonts/Lyno Family/LynoJean.otf');
+}

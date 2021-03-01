@@ -1,0 +1,39 @@
+.declaration {
+    height: 500px;
+    width: 400px;
+    margin: auto;
+}
+
+/*.culper-ring__texts {*/
+    /*padding: 40px 40px !important;*/
+/*}*/
+
+.friends-of-people {
+    max-height: 600px;
+    width: auto;
+    margin: auto;
+    object-fit: cover;
+    object-position:  center;
+}
+
+.slick-dotted.slick-slider {
+    margin-bottom: 0 !important;
+}
+
+.slick-dots {
+    bottom: 20px !important;
+}
+
+.slick-dots li button:before {
+    color: #1787CF !important;
+    font-size: 12px !important;
+}
+
+.bg-orange .slick-dots li button:before {
+    color: #FF5D24 !important;
+    font-size: 12px !important;
+}
+
+.slick-dots li.slick-active button:before{
+    opacity: 1 !important;
+}

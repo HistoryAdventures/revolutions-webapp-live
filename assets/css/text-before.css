@@ -1,0 +1,483 @@
+@import "fonts.css";
+
+.history > span,
+.adventures > span,
+.world > span,
+.of,
+.agent > span,
+.the > span,
+.who > span,
+.spy > span,
+.america > span,
+.revolutIons > span,
+.loved > span,
+.IndustrIAlIzAtIon > span,
+.andIcon::before,
+.fei > span,
+.terrible > span,
+.truth > span,
+.serum > span,
+.hong > span,
+.rotate-character::before,
+.khari>span:nth-child(2)::before,
+.loyal>span,
+.to>span,
+.the>span,
+.nightmare>span,
+.of-of>span,
+.his>span,
+.choice>span,
+.thomosa>span,
+.brown>span:nth-child(3)::before{
+  font-family: 'LynoStan';
+}
+
+.history > span:last-child::before,
+.history > span:nth-child(6)::before,
+.adventures > span:first-child::before,
+.adventures > span:nth-child(8)::before,
+.world > span:first-child::before,
+.world > span:nth-child(4)::before,
+.agent > span:first-child::before,
+.fei > span:nth-child(2):before,
+.hong > span:first-child::before,
+.hong > span:nth-child(3)::before,
+.khari>span:first-child::before,
+.khari>span:nth-child(3)::before,
+.khari>span:nth-child(4)::before,
+.khari>span:last-child::before,
+.thomosa>span:nth-child(4)::before,
+.thomosa>span:nth-child(5)::before,
+.brown>span
+{
+  font-family: 'LynoUlys';
+}
+
+.history > span:first-child::before,
+.the > span:nth-child(2)::before,
+.hong > span:first-child::before,
+.truth > span:last-child::before {
+  content: '\0048'
+}
+
+.history > span:nth-child(2)::before,
+.revolutIons > span:nth-child(8)::before,
+.IndustrIAlIzAtIon > span:nth-child(1)::before,
+.IndustrIAlIzAtIon > span:nth-child(10)::before,
+.IndustrIAlIzAtIon > span:nth-child(14)::before,
+.america > span:nth-child(5)::before,
+.fei > span:nth-child(3):before,
+.terrible > span:nth-child(5)::before {
+  content: '\0049'
+}
+
+.history > span:nth-child(3)::before,
+.serum > span:first-child::before {
+  content: '\0053'
+}
+
+.history > span:nth-child(4)::before,
+.IndustrIAlIzAtIon > span:nth-child(13)::before,
+.the > span:first-child::before,
+.terrible > span:first-child::before,
+.truth > span:first-child::before,
+.thomosa>span:nth-child(1)::before{
+  content: '\0054'
+}
+
+.history > span:nth-child(5)::before,
+.revolutIons > span:nth-child(9)::before,
+.IndustrIAlIzAtIon > span:nth-child(15)::before,
+.who > span:nth-child(3)::before,
+.hong > span:nth-child(2)::before {
+  content: '\004F'
+}
+
+.history > span:nth-child(6)::before,
+.IndustrIAlIzAtIon > span:nth-child(7)::before,
+.revolutIons > span:first-child::before,
+.truth > span:nth-child(2)::before,
+.brown>span:nth-child(2)::before{
+  content: '\0072'
+}
+
+.history > span:last-child::before {
+  content: '\0059'
+}
+
+/*adventures text*/
+
+.adventures > span:first-child::before,
+.agent > span:first-child::before,
+.thomosa>span:nth-child(5)::before{
+  content: '\0061'
+}
+
+.adventures > span:nth-child(2)::before,
+.IndustrIAlIzAtIon > span:nth-child(3)::before {
+  content: '\0044'
+}
+
+.adventures > span:nth-child(3)::before,
+.revolutIons > span:nth-child(3)::before,
+.loved > span:nth-child(3)::before {
+  content: '\0056'
+}
+
+.adventures > span:nth-child(4)::before,
+.agent > span:nth-child(3)::before,
+.the > span:last-child::before,
+.america > span:nth-child(3)::before,
+.revolutIons > span:nth-child(2)::before,
+.loved > span:nth-child(4)::before,
+.terrible > span:nth-child(2)::before,
+.terrible > span:nth-child(8)::before,
+.serum > span:nth-child(2)::before {
+  content: '\0045'
+}
+
+.adventures > span:nth-child(5)::before,
+.revolutIons > span:nth-child(10)::before,
+.IndustrIAlIzAtIon > span:nth-child(2)::before,
+.IndustrIAlIzAtIon > span:nth-child(16)::before,
+.agent > span:nth-child(4)::before {
+  content: '\004E'
+}
+
+.adventures > span:nth-child(6)::before,
+.agent > span:nth-child(5)::before {
+  content: '\0054'
+}
+
+.adventures > span:nth-child(7)::before,
+.IndustrIAlIzAtIon > span:nth-child(4)::before,
+.revolutIons > span:nth-child(6)::before,
+.truth > span:nth-child(3)::before,
+.serum > span:nth-child(4)::before {
+  content: '\0055'
+}
+
+.adventures > span:nth-child(8)::before,
+.america > span:nth-child(4)::before,
+.terrible > span:nth-child(3)::before,
+.terrible > span:nth-child(4)::before,
+.serum > span:nth-child(3)::before {
+  content: '\0072'
+}
+
+.adventures > span:nth-child(9)::before,
+.revolutIons > span:nth-child(11)::before {
+  content: '\0045'
+}
+
+.adventures > span:nth-child(10)::before,
+.revolutIons > span:nth-child(11)::before,
+.IndustrIAlIzAtIon > span:nth-child(5)::before,
+.spy > span:first-child::before,
+.thomosa>span:nth-child(6)::before{
+  content: '\0053'
+}
+
+/*world text*/
+
+.world > span:first-child::before,
+.who > span:first-child::before,
+.brown>span:nth-child(4)::before{
+  content: '\0057';
+}
+
+.world > span:nth-child(2)::before,
+.revolutIons > span:nth-child(4)::before,
+.loved > span:nth-child(2)::before,
+.brown>span:nth-child(3)::before{
+  content: '\004F';
+}
+
+.world > span:nth-child(3)::before {
+  content: '\0072';
+}
+
+.world > span:nth-child(4)::before,
+.revolutIons > span:nth-child(5)::before,
+.IndustrIAlIzAtIon > span:nth-child(9)::before,
+.loved > span:nth-child(1)::before,
+.terrible > span:nth-child(7)::before {
+  content: '\006C';
+}
+
+.world > span:nth-child(5)::before,
+.loved > span:last-child::before {
+  content: '\0064';
+}
+
+/*of text*/
+
+.of::before {
+  content: '\004F';
+}
+
+.of::after,
+.fei > span:first-child:before {
+  content: '\0046';
+}
+
+/*characters text*/
+
+.characters > span:first-child::before,
+.characters > span:nth-child(6)::before {
+  content: '\0063';
+}
+
+.characters > span:nth-child(2)::before,
+.who > span:nth-child(2)::before,
+.thomosa>span:nth-child(2)::before{
+  content: '\0048';
+}
+
+.characters > span:nth-child(3)::before,
+.characters > span:nth-child(5)::before {
+  content: '\0061';
+}
+
+.characters > span:nth-child(4)::before,
+.characters > span:nth-child(9)::before {
+  content: '\0072';
+}
+
+.characters > span:nth-child(7)::before,
+.IndustrIAlIzAtIon > span:nth-child(6)::before,
+.revolutIons > span:nth-child(7)::before,
+.truth > span:nth-child(4)::before {
+  content: '\0054';
+}
+
+.characters > span:nth-child(8)::before,
+.fei > span:nth-child(2):before {
+  content: '\0045';
+}
+
+.characters > span:nth-child(10)::before,
+.brown>span:nth-child::before(5){
+  content: '\0053';
+}
+
+.agent > span:nth-child(2)::before,
+.hong > span:last-child::before {
+  content: '\0067';
+}
+
+.spy > span:nth-child(2)::before {
+  content: '\0050';
+}
+
+.spy > span:nth-child(3)::before {
+  content: '\0079';
+}
+
+.america > span:first-child::before,
+.IndustrIAlIzAtIon > span:nth-child(8)::before,
+.IndustrIAlIzAtIon > span:nth-child(12)::before,
+.america > span:last-child::before {
+  content: '\0041';
+}
+
+.america > span:nth-child(2)::before {
+  content: '\004D';
+}
+
+.america > span:nth-child(6)::before {
+  content: '\0043';
+}
+
+.IndustrIAlIzAtIon > span:nth-child(11)::before {
+  content: '\005A';
+}
+
+.andIcon::before {
+  content: '\0026';
+}
+
+.hong > span:nth-child(2)::before {
+  content: '\006F';
+}
+
+.hong > span:nth-child(3)::before {
+  content: '\006E';
+}
+
+.serum > span:nth-child(5)::before {
+  content: '\006D';
+}
+
+.terrible > span:nth-child(6)::before {
+  content: '\0062';
+}
+
+.rotate-character::before {
+  content: '\0027';
+}
+
+.khari>span:first-child::before{
+  content: '\004B';
+}
+.khari>span:nth-child(2)::before,
+.the>span:nth-child(2)::before,
+.nightmare>span:nth-child(4)::before,
+.nightmare>span:nth-child(5)::before,
+.his>span:first-child::before,
+.choice>span:nth-child(2)::before{
+  content: '\0048';
+}
+.khari>span:nth-child(3)::before{
+  content: '\0061';
+}
+.khari>span:nth-child(4)::before,
+.nightmare>span:nth-child(8)::before{
+  content: '\0072';
+}
+.khari>span:last-child::before,
+.nightmare>span:nth-child(2)::before,
+.his>span:nth-child(2)::before,
+.choice>span:nth-child(4)::before{
+  content: '\0049';
+}
+.loyal>span:first-child::before,
+.loyal>span:last-child::before{
+  content: '\006C';
+}
+.loyal>span:nth-child(2)::before,
+.to>span:last-child::before,
+.of-of>span:first-child::before,
+.choice>span:nth-child(3)::before,
+.thomosa>span:nth-child(3)::before{
+  content: '\004F';
+}
+.loyal>span:nth-child(3)::before{
+  content: '\0079';
+}
+.loyal>span:nth-child(4)::before,
+.nightmare>span:nth-child(7)::before{
+  content: '\0061';
+}
+.to>span:first-child::before,
+.the>span:first-child::before,
+.nightmare>span:nth-child(5)::before{
+  content: '\0054';
+}
+.the>span:nth-child(3)::before,
+.nightmare>span:nth-child(9)::before,
+.choice>span:last-child::before{
+  content: '\0045';
+}
+.nightmare>span:first-child::before{
+  content: '\004E';
+}
+.nightmare>span:nth-child(3)::before{
+  content: '\0067';
+}
+.nightmare>span:nth-child(6)::before,
+.thomosa>span:nth-child(4)::before{
+  content: '\006D';
+}
+.of-of>span:last-child::before{
+  content: '\0046';
+}
+.his>span:nth-child(3)::before{
+  content: '\0053';
+}
+.choice>span:first-child::before,
+.choice>span:nth-child(5)::before{
+  content: '\0043';
+}
+.brown>span:nth-child(1)::before{
+  content: '\0042';
+}
+
+.credits>span:first-child::before,
+.credits>span:nth-child(2)::before,
+.credits>span:nth-child(4)::before,
+.credits>span:nth-child(5)::before,
+.credits>span:nth-child(6)::before,
+.credits>span:last-child::before{
+  font-family: 'LynoStan';
+}
+.credits>span:nth-child(3)::before{
+  font-family: 'LynoUlys';
+}
+.credits>span:first-child::before{
+  content: '\0063'
+}
+.credits>span:nth-child(2)::before {
+  content: '\0072'
+}
+.credits>span:nth-child(3)::before{
+  content: '\0045'
+}
+.credits>span:nth-child(4)::before {
+  content: '\0044'
+}
+.credits>span:nth-child(5)::before {
+  content: '\0049'
+}
+.credits>span:nth-child(6)::before {
+  content: '\0074'
+}
+.credits>span:last-child::before{
+  content: '\0073'
+}
+
+.copyright>span{
+  font-family: 'LynoStan';
+}
+.copyright >span:first-child::before{
+  content: '\0043'
+}
+.copyright >span:nth-child(2)::before {
+  content: '\004F'
+}
+.copyright >span:nth-child(3)::before {
+  content: '\0070'
+}
+.copyright >span:nth-child(4)::before {
+  content: '\0059'
+}
+.copyright >span:nth-child(5)::before {
+  content: '\0072'
+}
+.copyright >span:nth-child(6)::before {
+  content: '\0049'
+}
+.copyright >span:nth-child(7)::before {
+  content: '\0067'
+}
+.copyright >span:nth-child(8)::before {
+  content: '\0048'
+}
+.copyright >span:last-child::before {
+  content: '\0054'
+}
+
+.source >span{
+  font-family: 'LynoStan';
+}
+.source >span:first-child::before{
+  content: '\0053'
+}
+.source >span:nth-child(2)::before {
+  content: '\004F'
+}
+.source >span:nth-child(3)::before {
+  content: '\0055'
+}
+.source >span:nth-child(4)::before {
+  content: '\0072'
+}
+.source >span:nth-child(5)::before {
+  content: '\0043'
+}
+.source >span:nth-child(6)::before {
+  content: '\0045'
+}
+.source >span:last-child::before{
+  content: '\0053'
+}

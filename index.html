@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>History Adventures</title>
+    <link rel="icon" href="./assets/img/ha.png" type="image/png">
+    <link href="./iv-viewer/dist/iv-viewer.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/declaration.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+          integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+          integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="config.css">
+    <link rel="stylesheet" href="assets/css/bookwidgets.css">
+    <link rel="stylesheet" href="assets/css/fonts.css"/>
+    <link rel="stylesheet" href="assets/css/text-before.css"/>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1LVLLYGLPS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-1LVLLYGLPS');
+    </script>
+
+</head>
+<body>
+    <div class="position-absolute navigation-popup d-none" id="navigation_popup"></div>
+    <div class="navigation-panel position-absolute pt-5 pl-2 pr-5" id="navigation_panel">
+        <div id="navigation"></div>
+    </div>
+    <button class="arrow-left position-absolute" id="arrow-left">
+        <svg aria-hidden="true" class="slider-arrow" focusable="false" data-prefix="fas" data-icon="chevron-circle-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path fill="currentColor" d="M256 504C119 504 8 393 8 256S119 8 256 8s248 111 248 248-111 248-248 248zM142.1 273l135.5 135.5c9.4 9.4 24.6 9.4 33.9 0l17-17c9.4-9.4 9.4-24.6 0-33.9L226.9 256l101.6-101.6c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L142.1 239c-9.4 9.4-9.4 24.6 0 34z" class=""></path>
+        </svg>
+    </button>
+    <button class="arrow-right position-absolute" id="arrow-right">
+        <svg aria-hidden="true" class="slider-arrow" focusable="false" data-prefix="fas" data-icon="chevron-circle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" >
+            <path fill="currentColor" d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z" class=""></path>
+        </svg>
+    </button>
+    <button class="btn navigation-button" onclick="openCloseNavigation()">
+        <svg class="nav-svg" fill="#a2a2a2" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" >
+            <path d="M442 114H6a6 6 0 0 1-6-6V84a6 6 0 0 1 6-6h436a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6zm0 160H6a6 6 0 0 1-6-6v-24a6 6 0 0 1 6-6h436a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6zm0 160H6a6 6 0 0 1-6-6v-24a6 6 0 0 1 6-6h436a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6z"></path>
+        </svg>
+    </button>
+    <div class="audio-button-container position-absolute">
+        <div class="audio-button" id="audio-button">
+            <svg class="audio-icon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="volume" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512">
+                <path fill="currentColor" d="M215.03 71.05L126.06 160H24c-13.26 0-24 10.74-24 24v144c0 13.25 10.74 24 24 24h102.06l88.97 88.95c15.03 15.03 40.97 4.47 40.97-16.97V88.02c0-21.46-25.96-31.98-40.97-16.97zM480 256c0-63.53-32.06-121.94-85.77-156.24-11.19-7.14-26.03-3.82-33.12 7.46s-3.78 26.21 7.41 33.36C408.27 165.97 432 209.11 432 256s-23.73 90.03-63.48 115.42c-11.19 7.14-14.5 22.07-7.41 33.36 6.51 10.36 21.12 15.14 33.12 7.46C447.94 377.94 480 319.53 480 256zm-141.77-76.87c-11.58-6.33-26.19-2.16-32.61 9.45-6.39 11.61-2.16 26.2 9.45 32.61C327.98 228.28 336 241.63 336 256c0 14.38-8.02 27.72-20.92 34.81-11.61 6.41-15.84 21-9.45 32.61 6.43 11.66 21.05 15.8 32.61 9.45 28.23-15.55 45.77-45 45.77-76.88s-17.54-61.32-45.78-76.86z"></path>
+            </svg>
+        </div>
+    </div>
+    <div class="h-100">
+        <div class="h-100" id="page-show">
+            
+        </div>
+        <div style="box-sizing:border-box">
+            <div class="row">
+                <div class="col-5 bg-white screen-size text-center">
+                    <p class="mt-5">Spencer Striker, PhD</p>
+                    <h1 class="intro-text">HIstory adveNtures</h1>
+                    <h4 class="characters-world text-uppercase">WOrld oF characters</h4>
+                    <p class="rev-indusrialization">revolutIons & IndustrIAlIzAtIon</p>
+                    <h3>C. 1750 to c. 1900</h3>
+                </div>
+            </div>
+        </div>
+        <div style="box-sizing:border-box">
+            <div class="row">
+                <div class="col-5 bg-white screen-size ">
+                    <h4 class="mt-5 use-the-book">How To Use this Book</h4>
+                    <p>This book is filled with interactive content, so feel free to explore all the various features you
+                        can find within the pages. This book is design to be viewed in portrait mode. Note the various
+                        enhanced content by locating the icons
+                        described below: </p>
+                    <div class="row mt-5">
+                        <div class="col-4">
+                            <img class="h-auto" src="assets/img/gent.jpg">
+                        </div>
+                        <div class="col-8">
+                            <p>Tap this to reveal additional information</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <img class="h-auto" src="assets/img/gent.jpg">
+                        </div>
+                        <div class="col-8">
+                            <p>
+                                Tap this to start 3D experience, feel free to explore and interact with different objects
+                                inside
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <img class="h-auto" src="assets/img/gent.jpg">
+                        </div>
+                        <div class="col-8">
+                            <p>Tap this to test your knowledge about the relevant topic or story</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <img class="h-auto" src="assets/img/gent.jpg">
+                        </div>
+                        <div class="col-8">
+                            <p>Tags contain additional content, tap them to reveal it</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <img class="h-auto" src="assets/img/gent.jpg">
+                        </div>
+                        <div class="col-8">
+                            <p>Check which AP World History: Modern topics are covered in the upcoming pages</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <img class="h-auto" src="assets/img/gent.jpg">
+                        </div>
+                        <div class="col-8">
+                            <p>
+                                Tap this to hear comments by a historian about certain topics in the stories
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="box-sizing:border-box">
+            <div class="row">
+                <div class="col-5 bg-black screen-size text-center">
+                    <h1 class="mt-5 global-integration text-white">
+                        IndustrIAlIzAtIon & globAl IntegrAtIon
+                    </h1>
+                    <p class="rev-indusrialization text-white">revolutIons & consequences oF IndustrIAlIzAtIon</p>
+                    <h3 class="text-white">c. 1750 to c. 1900</h3>
+                </div>
+            </div>
+        </div>
+        <div style="box-sizing:border-box">
+            <div class="row">
+                <div class="col-5 bg-black screen-size">
+                    <p class="mt-5">Industrialization & Global Integration 1750–1900</p>
+
+                    <p class="text-white">From out of the early modern period, we now enter a period characterized by the
+                        difficult questions that came to the forefront of the people who lived through an era of incredible
+                        change. As traditional societies gave way to more dynamic
+                        cultures, with the kingdoms of Europe being increasingly replaced by Empires with a truly global
+                        focus, the people caught up in this expansion sought to explain their place in this new world. They
+                        would ask the questions that,
+                        at their heart, challenged the traditional forms of authority in society: Employer, King, and God
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div style="box-sizing:border-box">
+            <div class="row">
+                <div class="col-5 bg-black screen-size">
+                    <p class="mt-5">Industrialization & Global Integration 1750–1900</p>
+                    <p class="text-white">These questions, along with many others, made this period one of the most
+                        explosive in history. Societies would be powered to new heights by the ingenuity of
+                        industrialization whilst they would also crumble to revolution and internal
+                        bloodshed. Kings and queens would be killed, and scientists, explorers and philosophers, would
+                        challenge ideas that would shake age-old beliefs to their core. From out of this climate of change
+                        and challenge we will begin to see
+                        the foundations of our modern world and our modern ways of thinking about people and our place in
+                        society.</p>
+
+                </div>
+            </div>
+        </div>
+        <div style="box-sizing:border-box">
+            <div class="row">
+                <div class="col-5 bg-black screen-size">
+                    <img class="gent-title mt-5 mb-3 h-auto"
+                         src="assets/img/gent.jpg">
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal revolutions__first -->
+        <div   class="modal fade p-0"
+                id="revolutionsFirst"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+            <div
+                    class="modal-dialog my-0"
+                    role="document">
+                <div class="modal-content position-relative">
+                    <button id="page_13_1_popup_close"
+                            type="button"
+                            class="close position-absolute text-white border rounded px-3 btn btn-outline"
+                            data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">Done</span>
+                    </button>
+                    <div class="modal-body p-0 rounded-0 text-center">
+                        <div class="h-100">
+                            <div class="video-background">
+                                <video id="popup_13_1_video" width="100%" class="screen-size" autoplay muted loop>
+                                    <source src="assets/img/audio-video/The_end_is_nigh_1.mp4" type="video/mp4">
+                                </video>
+                                <div class="mute-btn btn"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal revolutions__second -->
+        <div
+                class="modal fade p-0"
+                id="revolutionsSecond"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+            <div class="modal-dialog my-0" role="document">
+                <div class="modal-content position-relative">
+                    <button id="page_13_2_popup_close" type="button"
+                            class="close position-absolute text-white border rounded px-3 btn btn-outline"
+                            data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">Done</span>
+                    </button>
+                    <div class="modal-body p-0 rounded-0 text-center">
+                        <div class="h-100">
+                            <div class="video-background">
+                                <video id="popup_13_2_video" width="100%" class="screen-size" autoplay muted loop>
+                                    <source src="assets/img/audio-video/Agent_end_2_1.mp4" type="video/mp4">
+                                </video>
+                                <div class="mute-btn btn"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal revolutions__second -->
+        <div
+                style="width: 80% !important; margin: auto;"
+                class="modal fade p-0"
+                id="video-screen"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+            <div
+                    class="modal-dialog my-0"
+                    role="document">
+                <div class="modal-content position-relative">
+
+                </div>
+            </div>
+        </div>
+        <div style="width: 80% !important; margin: auto;"
+             class="modal fade p-0"
+             id="second-3d"
+             tabindex="-1"
+             role="dialog"
+             aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div
+                    class="modal-dialog my-0"
+                    role="document">
+                <div class="modal-content position-relative">
+
+                </div>
+            </div>
+        </div>
+        <div style="width: 80% !important; margin: auto;"
+             class="modal fade p-0"
+             id="modal-3d-3-part"
+             tabindex="-1"
+             role="dialog"
+             aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div
+                    class="modal-dialog my-0"
+                    role="document">
+                <div class="modal-content position-relative">
+
+                </div>
+            </div>
+        </div>
+        <div style="width: 80% !important; margin: auto;"
+             class="modal fade p-0"
+             id="modal-3d-4-part"
+             tabindex="-1"
+             role="dialog"
+             aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div
+                    class="modal-dialog my-0"
+                    role="document">
+                <div class="modal-content position-relative">
+
+                </div>
+            </div>
+        </div>
+        <div style="width: 80% !important; margin: auto;"
+             class="modal fade p-0"
+             id="modal-3d-5-part"
+             tabindex="-1"
+             role="dialog"
+             aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div
+                    class="modal-dialog my-0"
+                    role="document">
+                <div class="modal-content position-relative">
+
+                </div>
+            </div>
+        </div>
+        <div class="modal fade background-black p-0" id="ap-connection" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog  my-0" role="document">
+                <div class="modal-content background-black position-relative">
+                    <button type="button" class="close position-absolute text-white border rounded px-3 btn btn-outline"
+                        onclick="closePopup()" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">Done</span>
+                    </button>
+                    <div class="modal-body p-0 rounded-0 text-center">
+                        <div class="ap-connection-container d-flex justify-content-center">
+                            <div class="width-controller">
+                                <div class="mt-5 pt-5 title">
+                                    AP World History: Modern Units and Topics covered
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <div class="unit pr-4 pl-4 mt-3 text-uppercase">Unit 5</div>
+                                </div>
+                                <div class="font-stan mt-3">Revolutions</div>
+                                <div class="pl-5 d-flex justify-content-center mt-3">
+                                    <div class="text-points">
+                                        5.1 The Enlightement<br>
+                                        5.2 Nationalism and Revolutions in the Period from 1750 to 1900<br>
+                                        5.9 Society and the Industrial Age<br>
+                                        5.10 Continuity and Change in the Industrial Age unit 6<br>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <div class="unit pr-4 pl-4 mt-3 text-uppercase">Unit 6</div>
+                                </div>
+                                <div class="font-stan mt-4">Consequences of Industrialization</div>
+                                <div class="pl-5 d-flex justify-content-center mt-3">
+                                    <div class="text-points">
+                                        6.1 Rationales for Imperialism from 1750 to 1900<br>
+                                        6.2 State Expansion from 1750 to 1900 <br>
+                                        6.3 Indigenous Responses to State Expansion from 1750 to 1900<br>
+                                        6.5 Economic Imperialism from 1750 to 1900<br>
+                                        6.7 Effects of Migration ”
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal culpe-modal" id="gallery-popup">
+        <div class="modal-dialog my-0 p-0">
+            <div class="modal-content border-0">
+                <div class="modal-body position-relative">
+                    <button type="button" class="btn culpe-modal__btn text-white position-absolute bg-transparent"
+                            onclick="closeGallery()" data-dismiss="modal">Done
+                    </button>
+                    <div class="h-100 position-relative" id="gallery-popup-container">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--quizModal-->
+    <div class="modal culpe-modal" id="quizModal">
+        <button type="button" onclick="closeQuiz()" class="btn culpe-modal__btn text-white position-absolute bg-transparent" data-dismiss="modal">
+            Done
+        </button>
+        <div class="w-100 h-100 d-flex justify-content-center position-relative">
+            <iframe class="quiz-iframe h-100" id="quiz-iframe" src=""></iframe>
+        </div>
+    </div>
+    <!-- Modal one last rally -->
+    <div
+            class="modal fade p-0"
+            id="oneLastRally"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+        <div
+                class="modal-dialog my-0 h-100"
+                role="document">
+            <div class="modal-content position-relative h-100">
+                <button id="oneLastRally_close"
+                        type="button"
+                        class="close position-absolute text-white border rounded px-3 btn btn-outline"
+                        data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">Done</span>
+                </button>
+                <div class="modal-body p-0 rounded-0 text-center">
+                    <div class="h-100">
+                        <div class="col-5 h-100 mx-auto">
+                            <div class=" scroll-container">
+                                <div class="position-relative h-100 min-height-2">
+                                    <img src="./assets/img/jiemba/Jiemba_Ending.jpg" class="popup-image-24 min-height-2"
+                                         alt="">
+                                    <div class="position-absolute text-white py-4 px-5 modal-text-block">
+                                        <p class="mb-0 text-left"> I refuse to succumb to this sickness; I rise to my feet,
+                                            my
+                                            heart set with angry
+                                            intent.
+                                            I pluck berries from a nearby tree hoping that the fruit will heal me, but
+                                            regardless I
+                                            will reap revenge on these white men. </p>
+                                        <p class="mb-0 text-left">I sneak into their horse pen. I move silently until I can
+                                            open
+                                            the pen’s gate. Then,
+                                            I
+                                            let out a loud yell to startle them; they bolt away and out of their enclosure
+                                            thanks
+                                            to the gateway I have opened. Yes, it is a cowardly act, but as I watch the
+                                            horses
+                                            beat
+                                            the earth as they gallop farther away, and hear rumbles of anger from the white
+                                            men
+                                            approaching
+                                            behind me, I grit my teeth and enjoy this chaos I’ve created as much as I enjoy
+                                            everything else
+                                            new in my life.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <audio id="popup_24_1_video" class="screen-size w-100" autoplay muted loop>
+                                <source src="assets/audio/01_CYOA_Jiemba_Sabotage_1.mp3">
+                            </audio>
+                            <div class="mute-btn btn"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Live to fight another day -->
+    <div
+        class="modal fade p-0"
+        id="liveToFightAnotherDay"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div
+            class="modal-dialog my-0 h-100"
+            role="document">
+            <div class="modal-content position-relative h-100">
+                <button id="liveToFightAnotherDay_close"
+                        type="button"
+                        class="close position-absolute text-white border rounded px-3 btn btn-outline"
+                        data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">Done</span>
+                </button>
+                <div class="modal-body p-0 rounded-0 text-center">
+                    <div class="h-100">
+                        <div class="col-5 h-100 mx-auto">
+                            <div class="scroll-container">
+                                <div class="position-relative h-100 min-height-2">
+                                    <img src="./assets/img/jiemba/jiemba_image.jpg" class="popup-image-24 min-height-2"
+                                         alt="">
+                                    <div class="position-absolute text-white py-4 px-5 modal-text-block">
+                                        <p class="mb-0 text-left">
+                                            I must visit my tribe’s healer to find some way to beat this. I am one of the
+                                            few
+                                            who dare get close to the whites. Watching them, trying to understand why they
+                                            do
+                                            what they do, is part of who I am now. This knowledge may become invaluable to
+                                            my
+                                            people one day and I must continue my work. It may be the difference between
+                                            life
+                                            and death for my tribe and for the animals and plants around us.</p>
+                                        <p class="mb-0 text-left">
+                                            I hold out hope that we can reclaim our lands in the future and find a balance
+                                            between our culture and this invading one. Leaving the sacred space, though, I
+                                            look
+                                            back at it one last time and wonder when it, too, will grow carrots for the
+                                            whites.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <audio id="popup_24_2_video" class="screen-size w-100" autoplay muted loop>
+                                <source src="assets/audio/02_CYOA_Jiemba_Head_Back_1.mp3">
+                            </audio>
+                            <div class="mute-btn btn"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal FadeToBlack-->
+    <div
+            class="modal fade p-0 bg-black"
+            id="FadeToBlack"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+        <div
+                class="modal-dialog my-0 h-100"
+                role="document">
+            <div class="modal-content position-relative h-100">
+                <button id="FadeToBlack_close"
+                        type="button"
+                        class="close position-absolute text-white border rounded px-3 btn btn-outline"
+                        data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">Done</span>
+                </button>
+                <div class="modal-body p-0 rounded-0 text-center">
+                    <div class="h-100">
+                        <div class="col-5 h-100 mx-auto">
+                            <div class="scroll-container">
+                                <div class="position-relative h-100 min-height-2">
+                                    <img src="./assets/img/hong/FeiHong_end_1.png" class="popup-image-24 min-height-2"
+                                         alt="">
+                                </div>
+                            </div>
+                            <audio id="FeiHong_end_1_audio" class="screen-size w-100" autoplay muted loop>
+                                <source src="assets/img/hong/audio/CYOA_Fei_Hong_Opium_1.mp3">
+                            </audio>
+                            <div class="mute-btn btn"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal ItUpForGood-->
+    <div
+            class="modal fade p-0 bg-black"
+            id="ItUpForGood"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+        <div
+                class="modal-dialog my-0 h-100"
+                role="document">
+            <div class="modal-content position-relative h-100">
+                <button id="ItUpForGood_close"
+                        type="button"
+                        class="close position-absolute text-white border rounded px-3 btn btn-outline"
+                        data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">Done</span>
+                </button>
+                <div class="modal-body p-0 rounded-0 text-center">
+                    <div class="h-100">
+                        <div class="col-5 h-100 mx-auto">
+                            <div class="scroll-container">
+                                <div class="position-relative h-100 min-height-2">
+                                    <img src="./assets/img/hong/FeiHong_end_2.png" class="popup-image-24 min-height-2"
+                                         alt="">
+                                </div>
+                            </div>
+                            <audio id="FeiHong_end_2_audio" class="screen-size w-100" autoplay muted loop>
+                                <source src="assets/img/hong/audio/CYOA_Fei_Hong_Better_3.mp3">
+                            </audio>
+                            <div class="mute-btn btn"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal jiemba Declaration -->
+    <div
+            class="modal fade p-0"
+            id="declarationModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+        <div
+                class="modal-dialog my-0 h-100"
+                role="document">
+            <div class="modal-content position-relative h-100">
+                <button id="declarationModal_close"
+                        type="button" onclick="closeBigImagePopup()"
+                        class="close position-absolute text-white border rounded px-3 btn btn-outline mr4"
+                        data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">Done</span>
+                </button>
+                <div class="modal-body p-0 rounded-0 text-center" id="declarationModal-container">
+                    <iframe id="iframe-big-image"  frameborder="0" width="100%" class="min-height-100"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal a wrrior Demise-->
+    <div class="modal fade p-0 bg-black"
+            id="awrriorDemiseModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+        <div
+                class="modal-dialog my-0 h-100"
+                role="document">
+            <div class="modal-content position-relative h-100">
+                <button id="awrriorDemiseModal_close"
+                        type="button" onclick="closePopup()"
+                        class="close position-absolute text-white border rounded px-3 btn btn-outline"
+                        data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">Done</span>
+                </button>
+                <div class="modal-body p-0 rounded-0 text-center">
+                    <div class="h-100">
+                        <div class="col-5 h-100 mx-auto">
+                            <div class="scroll-container">
+                                <div class="position-relative h-100 min-height-2">
+                                    <img src="./assets/img/khari/Khari_end_1.png" class="popup-image-24 min-height-2"
+                                         alt="">
+                                </div>
+                            </div>
+                            <audio id="khari_escape_01_audio" class="screen-size w-100" autoplay muted loop>
+                                <source src="assets/img/khari/audio-video/Khari_Engage_01.mp3">
+                            </audio>
+                            <div class="mute-btn btn"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal No Death Today-->
+    <div class="modal fade p-0 bg-black"
+            id="noDeathTodayModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+        <div
+                class="modal-dialog my-0 h-100"
+                role="document">
+            <div class="modal-content position-relative h-100">
+                <button id="noDeathTodayModal_close"
+                        type="button" onclick="closePopup()"
+                        class="close position-absolute text-white border rounded px-3 btn btn-outline"
+                        data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">Done</span>
+                </button>
+                <div class="modal-body p-0 rounded-0 text-center">
+                    <div class="h-100">
+                        <div class="col-5 h-100 mx-auto">
+                            <div class="scroll-container">
+                                <div class="position-relative h-100 min-height-2">
+                                    <img src="./assets/img/khari/Khari_end_2.png" class="popup-image-24 min-height-2"
+                                         alt="">
+                                </div>
+                            </div>
+                            <audio id="khari_escape_02_audio" class="screen-size w-100" autoplay muted loop>
+                                <source src="assets/img/khari/audio-video/Khari_Escape_02.mp3">
+                            </audio>
+                            <div class="mute-btn btn"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal-->
+    <div class="modal fade p-0 bg-black"
+            id="chicagoEnd01"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+        <div class="modal-dialog my-0 h-100"
+                role="document">
+            <div class="modal-content position-relative h-100">
+                <button id="chicagoEnd01_close"
+                        type="button" onclick="closePopup()"
+                        class="close position-absolute text-white border rounded px-3 btn btn-outline"
+                        data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">Done</span>
+                </button>
+                <div class="modal-body p-0 rounded-0 text-center">
+                    <div class="h-100">
+                        <div class="col-5 h-100 mx-auto">
+                            <div class="scroll-container">
+                                <div class="position-relative h-100 min-height-2">
+                                    <img src="./assets/img/thomosaBrown/CYOA/Chicago_end_1.png"
+                                         class="popup-image-24 min-height-2"
+                                         alt="">
+                                </div>
+                            </div>
+                            <audio id="Chicago_end_01_audio" class="screen-size w-100" autoplay muted loop>
+                                <source src="assets/img/thomosaBrown/CYOA/Tom_Brown_ShutUp_1.mp3">
+                            </audio>
+                            <div class="mute-btn btn"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal a wrrior Demise-->
+    <div class="modal fade p-0 bg-black"
+            id="chicagoEnd02"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+        <div class="modal-dialog my-0 h-100"
+                role="document">
+            <div class="modal-content position-relative h-100">
+                <button id="chicagoEnd02_close"
+                        type="button" onclick="closePopup()"
+                        class="close position-absolute text-white border rounded px-3 btn btn-outline"
+                        data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">Done</span>
+                </button>
+                <div class="modal-body p-0 rounded-0 text-center">
+                    <div class="h-100">
+                        <div class="col-5 h-100 mx-auto">
+                            <div class="scroll-container">
+                                <div class="position-relative h-100 min-height-2">
+                                    <img src="assets/img/thomosaBrown/CYOA/Chicago_end_2.png"
+                                         class="popup-image-24 min-height-2"
+                                         alt="">
+                                </div>
+                            </div>
+                            <audio id="Chicago_end_02_audio" class="screen-size w-100" autoplay muted loop>
+                                <source src="assets/img/thomosaBrown/CYOA/Tom_Brown_Write_1_with_voice.mp3">
+                            </audio>
+                            <div class="mute-btn btn"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden-container" id="hidden-container"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script
+            type="text/javascript"
+            src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+            integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+            crossorigin="anonymous"></script>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+
+    <script src="./assets/js/dictionary-list.js"></script>
+    <script type="text/javascript"
+            src="config.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/pagination.js"></script>
+</body>
+
+</html>
